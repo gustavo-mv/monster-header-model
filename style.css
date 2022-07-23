@@ -26,10 +26,17 @@ html, body {
 .divisoria:nth-child(2){
     display: flex;
     flex-direction: column;
+    animation: moverLado 3s;
 }
 
 .divisoria:first-child{
+    animation: mover 5s;
     height: 100%;  
+}
+
+.divisoria:last-child{
+    animation: moverBaixo 5s;
+
 }
 
 .background img{
@@ -72,9 +79,11 @@ html, body {
     color: white;
     height: 5rem;
     width: 10rem;
+    border: none;
     transition: 0.2s;
     font: inherit;
     border-radius: 10px;
+    animation: botoes 3s ease;
     animation: lados 2s infinite linear ease-in-out;
     cursor: pointer;
 }
@@ -92,6 +101,13 @@ html, body {
      -webkit-box-shadow: 0px 0px 24px 5px #04FF00; 
      box-shadow: 0px 0px 24px 5px #04FF00;
      border: 0px;
+}
+
+#video-bg{
+    position: absolute;
+    height: 40rem;
+    width: 100%;
+    object-fit: cover;
 }
 
 @-webkit-keyframes moving {
@@ -114,4 +130,46 @@ html, body {
     50%  { transform: translateX(3px); }
     100% { transform: translateX(0); }
   }
-}
+
+
+  @keyframes mover {
+    0% {
+      transform: translateY(20rem) rotateY(-30deg);
+    }
+    100% {
+      transform: translateY(0) rotateY(0);
+      opacity: 1;
+    }
+  }
+
+    @keyframes moverBaixo {
+        0% {
+          transform: translateY(-20rem) rotateY(-30deg);
+        }
+        100% {
+          transform: translateY(0) rotateY(0);
+          opacity: 1;
+        }
+    }
+
+    @keyframes moverLado {
+        0% {
+          transform: translateX(-90rem) rotateX(-30deg);
+        }
+        100% {
+          transform: translateX(0) rotateX(0);
+          opacity: 1;
+        }
+    }
+
+    @keyframes botoes {
+        0% {
+          opacity: 0;
+        }
+        90% {
+          opacity: 0;
+        }
+        100% {
+            opacity: 1;
+          }
+    }
